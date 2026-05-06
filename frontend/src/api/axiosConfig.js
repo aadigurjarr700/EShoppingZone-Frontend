@@ -3,7 +3,7 @@ import axios from 'axios';
 // ─── Single API Gateway entry point ────────────────────────────────────────
 // All requests go through the Ocelot gateway on port 5200,
 // which then forwards them to the correct microservice.
-const GATEWAY = 'http://localhost:5200/gateway';
+const GATEWAY = import.meta.env.VITE_GATEWAY_API;
 
 export const apiProfile = axios.create({ baseURL: `${GATEWAY}/profiles` });
 export const apiProduct = axios.create({ baseURL: `${GATEWAY}/products` });
